@@ -1,0 +1,145 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Jogo de Adivinhção - Sérvia -</title>
+	<link rel="shortcut icon" href="./imagens/favicon.ico" type="image/x-icon">
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Alexandria:wght@200;300;400&display=swap" rel="stylesheet">
+	<link href="css/bootstrap.min.css" rel="stylesheet">
+	<link href="css/bootstrap.css" rel="stylesheet">
+	<script src="js/bootstrap.bundle.min.js"></script>
+	<script src="js/bootstrap.bundle.js"></script>
+	<script src="js/bootstrap.bundle.min.js"></script>
+	<script src="js/bootstrap.js"></script>
+	<script src="js/bootstrap.min.js"></script>
+</head>
+<style>
+	* {
+		font-family: 'Alexandria', sans-serif;
+	}
+
+	h2 {
+		font-weight: 400;
+	}
+	.img-card {
+		border-radius: 10px;
+		box-shadow: 1px 2px 2px rgba(0, 0, 0, 0.192);
+	}
+
+	nav-link {
+		color: green;
+	}
+
+	.botao-tente {
+		background-color: black;
+		color: white;
+		padding: 2px;
+		cursor: pointer;
+	}
+
+	.div-result {
+		font-family: 'Alexandria', sans-serif;
+	}
+
+	h3 {
+		font-family: 'Alexandria', sans-serif;
+		font-weight: 400;
+	}
+</style>
+<body>
+	<nav class="navbar navbar-expand-lg bg-light">
+		<div class="container-fluid">
+		  <a class="navbar-brand" href="#" style="color: red;">Adivinhe!</a>
+		  <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+			<span class="navbar-toggler-icon"></span>
+		  </button>
+		  <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+			<ul class="navbar-nav me-auto mb-2 mb-lg-0">
+			  <li class="nav-item">
+				<a class="nav-link" href=".">Adivinhação de Imagem</a>
+			  </li>
+			  <li class="nav-item">
+				<a class="nav-link" href=".">Adivinhação de Número</a>
+			  </li>
+			</ul>
+			<form class="d-flex" role="search">
+			  <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+			  <button class="btn btn-outline-danger" type="submit">Procurar</button>
+			</form>
+		  </div>
+		</div>
+	</nav>
+	<script>
+		document.write('<center> <h1> Jogo da Adivinhação </h1>');
+		document.write('<center> <p> Veja a tabela abaixo e escolha a imagem do jogador!! </p>');
+		document.write('<form name="formAdivinha" method="get"> ');						
+		document.write('<img src="./principal/principal.png" class="img-card" title="Role a tela para baixo"> </img>');
+		document.write('<marquee behavior="alternate"><br /><h5> ⚽Agora escolha abaixo as tabelas em que sua imagem aparece⚽</h5></marquee>');
+		document.write('<img src="./cartas/carta1.png" class="img-card"> </img>');
+		document.write('<br /><br /><INPUT TYPE="radio" NAME="op1" VALUE="Sim">Sim ');
+		document.write('<INPUT TYPE="radio" NAME="op1" VALUE="Não" checked>Não<P>');
+		document.write('<br /><img src="./cartas/carta2.png" class="img-card"> </img>');
+		document.write('<br /><br /><INPUT TYPE="radio" NAME="op2" VALUE="Sim">Sim');
+		document.write('<INPUT TYPE="radio" NAME="op2" VALUE="Não" checked>Não<P>');
+		document.write('<br /><img src="./cartas/carta3.png" class="img-card"> </img>');
+		document.write('<br /><br /><INPUT TYPE="radio" NAME="op3" VALUE="Sim">Sim');
+		document.write('<INPUT TYPE="radio" NAME="op3" VALUE="Não" checked >Não<P>');
+		document.write('<br /><img src="./cartas/carta4.png" class="img-card"> </img>');
+		document.write('<br /><br /><INPUT TYPE="radio" NAME="op4" VALUE="Sim">Sim');
+		document.write('<INPUT TYPE="radio" NAME="op4" VALUE="Não" checked">Não<P>');
+		document.write('<input class="btn btn-outline-success" type="button" name="verifica" value="Ver o Resultado" onclick="respostas()">');
+		document.write('<input class="btn btn-outline-danger" style="margin: 5px;" type="reset" name="limpar" value="Limpar Respostas" >');
+		document.write('</form> </center>');	
+
+		function respostas(){ 
+		
+		var posicao=0;
+		
+		var resp1=document.formAdivinha.op1.value;
+		var resp2=document.formAdivinha.op2.value;
+		var resp3=document.formAdivinha.op3.value;
+		var resp4=document.formAdivinha.op4.value;
+
+			//alert('resposta 1 '+resp1); alert('resposta 2 '+resp2); alert('resposta 3 '+resp3); alert('resposta 4 '+resp4);
+			
+			if(resp1 == "Sim") posicao=posicao+1;
+			if(resp2 == "Sim") posicao=posicao+2; 
+			if(resp3 == "Sim") posicao=posicao+8;
+			if(resp4 == "Sim") posicao=posicao+4;
+			
+			
+			if(posicao>0)
+			{
+			//alert('posicao ='+posicao);
+			document.write('<div class="div-result">');
+			document.write('<center><h2>A imagem que você pensou foi: </h2><br />');
+			if(posicao ==1) document.write('<img src="./imagens/1.png"><h3>Sergej Milinković-Savić</h3>');
+			if(posicao ==2) document.write('<img src="./imagens/2.png"><h3>Aleksandar Mitrović </h3>');
+			if(posicao ==3) document.write('<img src="./imagens/3.png"><h3>Nikola Milenković</h3>');
+			if(posicao ==4) document.write('<img src="./imagens/4.png"><h3>Strahinja Eraković</h3>');
+			if(posicao ==5) document.write('<img src="./imagens/5.png"><h3>Uroš Spajić</h3>');
+			if(posicao ==6) document.write('<img src="./imagens/6.png"><h3>Luka Jovic</h3>');
+			if(posicao ==7) document.write('<img src="./imagens/7.png"><h3>Filip Đuričić</h3>');
+			if(posicao ==8) document.write('<img src="./imagens/8.png"><h3>Vanja Milinković-Savić</h3>');
+			if(posicao ==9) document.write('<img src="./imagens/9.png"><h3>Predrag Rajković</h3>');
+			if(posicao ==10) document.write('<img src="./imagens/10.png"><h3>Marko Dmitrović</h3>');
+			if(posicao ==11) document.write('<img src="./imagens/11.png"><h3>Miloš Veljković</h3>');
+			if(posicao ==12) document.write('<img src="./imagens/12.png"><h3>Strahinja Pavlović</h3>');
+			if(posicao ==13) document.write('<img src="./imagens/13.png"><h3>Filip Đuričić</h3>');
+			if(posicao ==14) document.write('<img src="./imagens/14.png"><h3>Dušan Tadić</h3>');
+			if(posicao ==15) document.write('<img src="./imagens/15.png"><h3>Darko Lazović</h3>');
+			document.write('<br /></br />');
+			document.write('<img src="./imagens/adivinhador.jpg" width="300" height="300" />');
+			document.write('<br /><br /><a href=""><button class="botao-tente" style="background-color: black; color: white; padding: 4px; border-radius: 4px; cursor: pointer;">Tentar Novamente!!!</button></a>');
+			
+			document.write('</center> </div>');
+			
+			
+			
+			} else alert('Você não escolheu nenhuma carta');
+		}
+	</script>
+</body>
+</html>
